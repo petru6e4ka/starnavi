@@ -1,12 +1,4 @@
-import {
-  FC,
-  SetStateAction,
-  Dispatch,
-  useCallback,
-  useMemo,
-  useEffect,
-  useRef,
-} from "react";
+import { FC, useCallback, useMemo, useEffect, useRef } from "react";
 import { always } from "../../utils/always";
 import { IMode } from "../../models/models";
 import { useToggle } from "../../hooks/useToggle";
@@ -20,7 +12,7 @@ interface ISelect {
   value?: string;
   options?: IMode[];
   getLabels?: (value: any) => string;
-  onChange?: Dispatch<SetStateAction<string>>;
+  onChange?: (value: any) => void;
   valueSelector?: (entity: any) => string;
 }
 
@@ -72,7 +64,7 @@ export const Select: FC<ISelect> = ({
       );
 
       if (_value) {
-        onChange(_getLabels(_value));
+        onChange(_value);
       }
     },
     [onChange, _getLabels, options]

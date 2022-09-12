@@ -57,6 +57,7 @@ export const Input: FC<IInput> = ({
         value={currentState}
         onFocus={onFocus}
         onChange={_onChange}
+        autoComplete="off"
       />
       <button
         className={`absolute top-0 bottom-0 right-0 w-[42px] text-slate-300 transition-all ${
